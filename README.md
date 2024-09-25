@@ -45,8 +45,6 @@ You may choose to provide your solution in one of the following formats:
 - The **Data Plane** is responsible for the **collection, processing, and forwarding** of logs, metrics, and traces from the agents to the local or central collector then to downstream consumers.
 - The **ObservIQ OP (BindPlane)** in the Control Plane manages the configuration of agents and collectors in the Data Plane.
 
----
-
 Separating the **Data Plane** from the **Control Plane** is critical, as they serve distinct purposes:
 
 1. **Data Plane (Log Collection & Processing):**
@@ -63,8 +61,6 @@ Separating the **Data Plane** from the **Control Plane** is critical, as they se
      - **Tier 2 (Management Layer):** The **Management Server** handles communication with agents and gateways, pushing configuration updates and monitoring agent health.
      - **Ansible** automates the **management plane** tasks, such as deploying updates and ensuring infrastructure consistency, but doesn’t directly interact with the Data Plane.
 
----
-
 ### **Design Overview**
 
 #### **1. Log Collection Data Flow (3-Tier Architecture - Data Plane):**
@@ -76,8 +72,6 @@ Separating the **Data Plane** from the **Control Plane** is critical, as they se
 - **Tier 1 (Client/UI):** A **Web UI** for managing agents, configurations, and pipeline deployments (e.g., **ObservIQ OP (BindPlane)**).
 - **Tier 2 (Management Server):** The backend management server communicates with agents and local gateways to push configurations, monitor agent health, and manage updates.
 - **Ansible** operates here, managing the **deployment** and **configuration** of the management server and any required updates to the Web UI and management infrastructure.
-
----
 
 ### **Separate the Two Architectures**
 
@@ -97,8 +91,6 @@ Separating the **Data Plane** from the **Control Plane** is critical, as they se
 4. **Simplicity and Maintenance:**
    - The **Control Plane** (2-tier) remains simple, focusing on management, updates, and configurations via **Ansible**.
    - The **Data Plane** (3-tier) focuses on log collection and processing, ensuring performance and scalability without interference from management tasks.
-
----
 
 ### **Example Setup:**
 
