@@ -57,7 +57,7 @@ You may choose to provide your solution in one of the following formats:
 - The **Data Plane** is responsible for the **collection, processing, and forwarding** of logs, metrics, and traces from the agents to the local or central collector then to downstream consumers.
 - The **ObservIQ OP (BindPlane)** in the Control Plane manages the configuration of agents and collectors in the Data Plane.
 
-Separating the **Data Plane** from the **Control Plane** is critical, as they serve distinct purposes:
+Separating the **Data Plane** from the **Control Plane**, to provide distinct purposes:
 
 1. **Data Plane (Log Collection & Processing):**
    - This layer handles the collection, processing, and forwarding of logs, metrics, and traces.
