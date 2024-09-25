@@ -73,7 +73,7 @@ Separating the **Data Plane** from the **Control Plane**, to provide distinct pu
      - **Tier 2 (Management Layer):** The **Management Server** handles communication with agents and gateways, pushing configuration updates and monitoring agent health.
      - **Ansible** automates the **management plane** tasks, such as deploying updates and ensuring infrastructure consistency, but doesn’t directly interact with the Data Plane.
 
-### **Separate the Two Architectures**
+### **Logical Separation the Two Architectures**
 
 1. **Different Responsibilities:**
    - The **Data Plane** focuses on log collection and processing.
