@@ -35,4 +35,12 @@ You may choose to provide your solution in one of the following formats:
 - A design diagram detailing the architecture, with the ability to discuss design decisions.
 - A write-up detailing the design and approach, with a readiness to explain the decisions made.
 
+---
 
+### **Agent and Collector Management (Control Plane)**
+- The **Control Plane** or **management layer** focuses on the configuration, deployment, and monitoring of the agents and pipelines. It ensures the infrastructure is running smoothly, but it doesn't handle the log data directly.
+- **Ansible** operates within the Control Plane, automating the **deployment** and **management** of the management infrastructure (e.g., **BindPlane**, **ObservIQ**) without directly managing the data collection agents.
+  
+### **Log Data Flow (Data Plane)**
+- The **Data Plane** is responsible for the **collection, processing, and forwarding** of logs, metrics, and traces from the agents to the central collector and downstream consumers.
+- The **BindPlane** or **ObservIQ** in the Control Plane manages the configuration of agents and collectors in the Data Plane, but **Ansible** doesn’t have direct access here.
