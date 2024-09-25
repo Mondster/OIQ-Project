@@ -106,6 +106,38 @@ Separating the **Data Plane** from the **Control Plane**, to provide distinct pu
 
 ---
 
+### **Assumptions for the Logging and Monitoring Infrastructure Design**
+
+1. **Network Connectivity:**
+   - All networks are **interconnected** or at least have access to the **internet**. Direct links to cloud infrastructure are avoided, as they may not be **cost-efficient**.
+
+2. **Firewall Rules:**
+   - **Firewall rules** permit **inbound traffic** from the **internet**, allowing external access as needed.
+
+3. **Infrastructure as Code (IaC) Pipeline:**
+   - There is an **IaC pipeline** in place, utilizing **Ansible**, **GitLab**, and any suitable **automation tooling** for infrastructure automation and management.
+
+4. **Infrastructure Monitoring:**
+   - A dedicated **team** is responsible for **monitoring the health** of the infrastructure to ensure stability and performance.
+
+5. **Log Collection Agents:**
+   - There are existing **agents** (e.g., **Snare agents**) sending logs from **Windows** systems.
+
+6. **Private Link for Company Office:**
+   - The **Company office** has a **private link** to the **collection infrastructure**, enabling **code deployment via secure data transmission**.
+   - The private link also allows **admin users** and **regular users** to access the platform for **monitoring** and **configuring**.
+
+7. **Autoscaling for Cloud Infrastructure:**
+   - Since the infrastructure is hosted in the cloud, **autoscaling** can be used for cloud infrastructure to save costs and handle varying loads.
+
+8. **High Availability (HA) and Multi-AZ for Cloud Deployment:**
+   - The collection infrastructure deployed in the cloud makes use of **High Availability (HA)** and **Multi-AZ** (Availability Zone) features for enhanced resilience and fault tolerance.
+
+9. **Ansible Access Limited to Management Plane:**
+   - **Ansible** is confined to the **management plane**, with no direct access to the **data plane**. It automates the deployment and configuration of the management infrastructure (e.g., **ObservIQ OP (BindPlane)**).
+
+---
+
 
 
 
