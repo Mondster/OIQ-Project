@@ -381,6 +381,7 @@ Separating the **Data Plane** from the **Control Plane**, to provide distinct pu
 
 ---
 
+<img src="https://github.com/Mondster/OIQ-Project/raw/main/diagram.svg" alt="Diagram" width="600"/>
 
 
 
