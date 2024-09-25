@@ -37,6 +37,18 @@ You may choose to provide your solution in one of the following formats:
 
 ---
 
+### **Design Overview**
+
+#### **1. Log Collection Data Flow (3-Tier Architecture - Data Plane):**
+- **Tier 1 (Client):** OTel agents collect logs and metrics from endpoints.
+- **Tier 2 (Application):** Local gateways deployed in each data center filter, batch, and forward logs.
+- **Tier 3 (Data Layer):** The central collector processes the logs and forwards them to downstream systems (e.g., SIEMs, Prometheus, Splunk).
+
+#### **2. Agent and Collector Management (2-Tier Architecture - Control Plane):**
+- **Tier 1 (Client/UI):** A **Web UI** for managing agents, configurations, and pipeline deployments (e.g., **ObservIQ OP (BindPlane)**).
+- **Tier 2 (Management Server):** The backend management server communicates with agents and local gateways to push configurations, monitor agent health, and manage updates.
+- **Ansible** operates here, managing the **deployment** and **configuration** of the management server and any required updates to the Web UI and management infrastructure.
+
 ### **Agent and Collector Management (Control Plane)**
 - The **management layer** focuses on the configuration, deployment, and monitoring of the agents and pipelines. It ensures the infrastructure is running smoothly.
 - **Ansible** operates within the Control Plane, automating the **deployment** and **management** of the management infrastructure (e.g., **ObservIQ OP (BindPlane)**) without directly managing the data collection agents after initial deployment of the agent.
@@ -60,18 +72,6 @@ Separating the **Data Plane** from the **Control Plane** is critical, as they se
      - **Tier 1 (Client/UI Layer):** The **Web UI** (e.g., **ObservIQ OP (BindPlane)**) allows administrators to configure and manage agents and pipelines.
      - **Tier 2 (Management Layer):** The **Management Server** handles communication with agents and gateways, pushing configuration updates and monitoring agent health.
      - **Ansible** automates the **management plane** tasks, such as deploying updates and ensuring infrastructure consistency, but doesn’t directly interact with the Data Plane.
-
-### **Design Overview**
-
-#### **1. Log Collection Data Flow (3-Tier Architecture - Data Plane):**
-- **Tier 1 (Client):** OTel agents collect logs and metrics from endpoints.
-- **Tier 2 (Application):** Local gateways deployed in each data center filter, batch, and forward logs.
-- **Tier 3 (Data Layer):** The central collector processes the logs and forwards them to downstream systems (e.g., SIEMs, Prometheus, Splunk).
-
-#### **2. Agent and Collector Management (2-Tier Architecture - Control Plane):**
-- **Tier 1 (Client/UI):** A **Web UI** for managing agents, configurations, and pipeline deployments (e.g., **ObservIQ OP (BindPlane)**).
-- **Tier 2 (Management Server):** The backend management server communicates with agents and local gateways to push configurations, monitor agent health, and manage updates.
-- **Ansible** operates here, managing the **deployment** and **configuration** of the management server and any required updates to the Web UI and management infrastructure.
 
 ### **Separate the Two Architectures**
 
